@@ -1,5 +1,6 @@
 // reducer().example1();
-reducer().example2();
+// reducer().example2();
+fromArrayToObject().example();
 
 function reducer() {
 
@@ -34,5 +35,42 @@ function reducer() {
         var totalValue = data.reduce(reducer, initialValue);
 
         console.log(totalValue);
+    }
+}
+
+function fromArrayToObject() {
+    return {
+        example
+    }
+
+    function example() {
+
+        let votes = [
+            "angular",
+            "angular",
+            "react",
+            "react",
+            "react",
+            "angular",
+            "ember",
+            "react",
+            "vanilla"
+        ];
+
+        let initialValue = {};
+
+        let reducer = function (tally, vote) {
+            if(!tally[vote]){
+                tally[vote] = 1
+            } else {
+                tally[vote] += 1;
+            }
+
+            return tally;
+        }
+
+        let result = votes.reduce(reducer,initialValue);
+
+        console.log(result);
     }
 }
