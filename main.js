@@ -1,6 +1,7 @@
 // reducer().example1();
 // reducer().example2();
-fromArrayToObject().example();
+// fromArrayToObject().example();
+commonPatterns().map();
 
 function reducer() {
 
@@ -72,5 +73,22 @@ function fromArrayToObject() {
         let result = votes.reduce(reducer,initialValue);
 
         console.log(result);
+    }
+}
+
+function commonPatterns() {
+
+    return {
+        map
+    }
+
+    function map() {
+
+        var data = [1,2,3];
+        var double = data.reduce( (acc, value) => { acc.push(value * 2); return acc;}, []);
+
+        var doubleMapped = data.map((item) => item * 2);
+
+        console.log(double,doubleMapped);
     }
 }
