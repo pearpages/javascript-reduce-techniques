@@ -1,7 +1,8 @@
 // reducer().example1();
 // reducer().example2();
 // fromArrayToObject().example();
-commonPatterns().map();
+// commonPatterns().map();
+commonPatterns().reducingToAsmallerArray();
 
 function reducer() {
 
@@ -79,7 +80,8 @@ function fromArrayToObject() {
 function commonPatterns() {
 
     return {
-        map
+        map,
+        reducingToAsmallerArray
     }
 
     function map() {
@@ -90,5 +92,18 @@ function commonPatterns() {
         var doubleMapped = data.map((item) => item * 2);
 
         console.log(double,doubleMapped);
+    }
+
+    function reducingToAsmallerArray() {
+
+        var data2 = [1,2,3,4,5,6];
+        var evens = data2.reduce( (acc, value) => {
+            if(value % 2 === 0) {
+                acc.push(value);
+            }
+            return acc;
+        }, []);
+
+        console.log(evens);
     }
 }
