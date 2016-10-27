@@ -104,6 +104,8 @@ function commonPatterns() {
             return acc;
         }, []);
 
-        console.log(evens);
+        var evenFiltered = data2.filter( (item) => item % 2 === 0);
+
+        console.log(evens,evenFiltered);
     }
 }
