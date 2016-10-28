@@ -2,7 +2,9 @@
 // reducer().example2();
 // fromArrayToObject().example();
 // commonPatterns().map();
-commonPatterns().reducingToAsmallerArray();
+// commonPatterns().reducingToAsmallerArray();
+// commonPatterns().composing();
+commonPatterns().forBigArrays();
 
 function reducer() {
 
@@ -81,7 +83,8 @@ function commonPatterns() {
 
     return {
         map,
-        reducingToAsmallerArray
+        reducingToAsmallerArray,
+        composing
     }
 
     function map() {
@@ -107,5 +110,15 @@ function commonPatterns() {
         var evenFiltered = data2.filter( (item) => item % 2 === 0);
 
         console.log(evens,evenFiltered);
+    }
+
+    function composing() {
+
+        var data = [1,2,3,4,5,6];
+
+        var result = data.filter( (item) => item % 2 === 0)
+        .map( (item) => item * 2);
+
+        console.log(result);
     }
 }
