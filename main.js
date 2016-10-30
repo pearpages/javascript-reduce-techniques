@@ -4,7 +4,8 @@
 // commonPatterns().map();
 // commonPatterns().reducingToAsmallerArray();
 // commonPatterns().composing();
-commonPatterns().forBigArrays();
+// commonPatterns().forBigArrays();
+reducerArguments().mean();
 
 function reducer() {
 
@@ -149,5 +150,27 @@ function commonPatterns() {
         console.timeEnd('bigData2');
 
         console.log(result1.length,result2.length);
+    }
+}
+
+function reducerArguments() {
+    return {
+        mean
+    }
+
+    function mean() {
+
+        var let = [1,2,3,3,4,5,3,1];
+
+        console.log(let.reduce(reducer,0));
+
+        function reducer(accumulator, value, index, array) {
+
+            if(index === array.length - 1) {
+                return (accumulator + value) / array.length;
+            }
+
+            return accumulator + value;
+        }
     }
 }
