@@ -5,7 +5,8 @@
 // commonPatterns().reducingToAsmallerArray();
 // commonPatterns().composing();
 // commonPatterns().forBigArrays();
-reducerArguments().mean();
+// reducerArguments().mean();
+advancedReduce().flatten();
 
 function reducer() {
 
@@ -172,5 +173,23 @@ function reducerArguments() {
 
             return accumulator + value;
         }
+    }
+}
+
+function advancedReduce() {
+
+    return {
+        flatten
+    }
+
+    function flatten () {
+
+        var data = [[1,2,3],[4,5,6],[7,8,9]];
+
+        var flattened = data.reduce((acc,value) => {
+            return acc.concat(value);
+        }, []);
+
+        console.log(flattened);
     }
 }
