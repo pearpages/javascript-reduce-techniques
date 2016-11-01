@@ -6,7 +6,8 @@
 // commonPatterns().composing();
 // commonPatterns().forBigArrays();
 // reducerArguments().mean();
-advancedReduce().flatten();
+// advancedReduce().flatten();
+advancedReduce().reduceRight();
 
 function reducer() {
 
@@ -179,7 +180,8 @@ function reducerArguments() {
 function advancedReduce() {
 
     return {
-        flatten
+        flatten,
+        reduceRight
     }
 
     function flatten () {
@@ -191,5 +193,16 @@ function advancedReduce() {
         }, []);
 
         console.log(flattened);
+    }
+
+    function reduceRight() {
+
+        var data = [1,2,3,4,5];
+        var sum = data.reduceRight( (acc,value,index) => {
+            console.log(index);
+            return acc + value;
+        }, 0);
+
+        console.log(sum);
     }
 }
