@@ -7,7 +7,8 @@
 // commonPatterns().forBigArrays();
 // reducerArguments().mean();
 // advancedReduce().flatten();
-advancedReduce().reduceRight();
+// advancedReduce().reduceRight();
+composingFunctions().pipeline();
 
 function reducer() {
 
@@ -204,5 +205,42 @@ function advancedReduce() {
         }, 0);
 
         console.log(sum);
+    }
+}
+
+function composingFunctions() {
+    return {
+        pipeline
+    }
+
+    function pipeline() {
+
+        function increment(input) { return input + 1; }
+        function decrement(input) { return input -1; }
+        function double(input) { return input * 2; }
+        function halve(input) { return input / 2; }
+
+        var pipeline = [
+            increment,
+            increment,
+            increment,
+            double,
+            increment,
+            increment,
+            halve
+        ];
+
+        function reducer (acc, fn) {
+            acc = fn(acc);
+            return acc;
+        }
+
+        var res = pipeline.reduce( reducer, 1);
+
+        console.log(res);
+
+        var res = pipeline.reduceRight(reducer, 1);
+
+        console.log(res);
     }
 }
