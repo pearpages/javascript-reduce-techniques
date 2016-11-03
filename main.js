@@ -8,7 +8,8 @@
 // reducerArguments().mean();
 // advancedReduce().flatten();
 // advancedReduce().reduceRight();
-composingFunctions().pipeline();
+//composingFunctions().pipeline();
+safeNestedObjectInspection().example();
 
 function reducer() {
 
@@ -242,5 +243,50 @@ function composingFunctions() {
         var res = pipeline.reduceRight(reducer, 1);
 
         console.log(res);
+    }
+}
+
+function safeNestedObjectInspection() {
+
+    return {
+        example
+    }
+
+    function example() {
+        var luke = {
+            name: 'luke',
+            jedi: true,
+            parents: {
+                father: {
+                    jedi: true
+                },
+                mother: {
+                    jedi: false
+                }
+            }
+        };
+
+        var han = {
+            name: 'anakin',
+            parents: {
+                mother: {
+                    jedi: false
+                }
+            }
+        };
+
+        function isFather(character) {
+            var path = 'parents.father.jedi';
+            return path.split('.').reduce( (acc,value) => {
+                if(acc) {
+                    return acc[value];
+                }
+                return false;
+            }, character);
+        }
+
+        var characters = [han,luke];
+        
+        characters.forEach( (c) => console.log(c.name + ' father is a jedi: ' + isFather(c) ));
     }
 }
